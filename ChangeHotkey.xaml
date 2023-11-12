@@ -1,0 +1,120 @@
+﻿<Window x:Name="hotkeyWindow" x:Class="AlphaClicker.ChangeHotkey"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AlphaClicker"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        WindowStyle="None"
+        Title="Alpha Clicker"
+        Height="155" Width="300"
+        Background="{x:Null}"
+        AllowsTransparency="True" MouseLeftButtonDown="hotkeyWindow_MouseLeftButtonDown" PreviewKeyDown="hotkeyWindow_PreviewKeyDown" Loaded="hotkeyWindow_Loaded" Closing="hotkeyWindow_Closing">
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Duration="00:00:00.5" Storyboard.TargetProperty="Opacity" From="0" To="1" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+
+
+    <Border Margin="10"
+        CornerRadius="15" 
+        Background="{DynamicResource WindowBackgroundColor}" 
+        BorderBrush="Gray" 
+        BorderThickness="0.3">
+
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="15" Direction="-90"
+                              RenderingBias="Quality" ShadowDepth="2"/>
+        </Border.Effect>
+
+        <Grid HorizontalAlignment="Stretch" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+
+            <Label x:Name="windowTitle" Content="快捷键设置"
+                   FontSize="15"
+                   
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center" 
+                   
+                   Margin="0,0,0,0"/>
+
+            <!-- X button -->
+            <Ellipse x:Name="closeButton" 
+                    Fill="#e00bc4"
+                     Cursor="Hand"
+                    Style="{DynamicResource GrowOnHover}"
+                    Grid.Row="0"
+                    Height="20" Width="20"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Margin="0,0,10,0"
+                    MouseLeftButtonDown="closeButton_MouseLeftButtonDown">
+
+                <Ellipse.RenderTransform>
+                    <ScaleTransform ScaleX="1.0" ScaleY="1.0" />
+                </Ellipse.RenderTransform>
+            </Ellipse>
+
+            <Grid Grid.Row="1" HorizontalAlignment="Stretch" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="Auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="startBtn" 
+                    Content="重置"
+                        Cursor="Hand"
+                    Foreground="White"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Height="36" Width="120"
+                    Background="#05b41c"
+                    Margin="10,0,0,0" Click="startBtn_Click"/>
+
+                <TextBox x:Name="keyBox"
+                    HorizontalAlignment="Right"
+                    Height="35" Width="120"
+                    IsReadOnly="true"
+                    VerticalAlignment="Center"
+                    Margin="0,0,10,0"/>
+
+
+                <Button x:Name="okBtn"
+                    Content="保存"
+                        Cursor="Hand"
+                    Foreground="{DynamicResource WindowTextColor2}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Height="36" Width="80"
+                    Background="#2a9de5"
+                    Grid.Row="1"
+                    Margin="56,4,144,5"
+                    Click="okBtn_Click"/>
+                <Button x:Name="cancelBtn"
+                    Content="取消"
+                        Cursor="Hand"
+                    Foreground="{DynamicResource WindowTextColor2}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Height="36" Width="82"
+                    Background="#ff8c00"
+                    Grid.Row="1" 
+                    Margin="144,4,54,5"
+                    Click="cancelBtn_Click"/>
+
+            </Grid>
+        </Grid>
+
+    </Border>
+</Window>

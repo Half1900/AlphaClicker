@@ -1,0 +1,51 @@
+﻿<Window x:Name="getCursorPosWindow" x:Class="AlphaClicker.GetCursorPos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AlphaClicker"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        WindowStyle="None"
+        Title="Cursor Location Picker"
+        Topmost="True"
+        Height="80" Width="200"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        Loaded="getCursorPosWindow_Loaded">
+
+    <Border Margin="10"
+        CornerRadius="15" 
+        Background="{DynamicResource WindowBackgroundColor}" 
+        BorderBrush="Gray" 
+        BorderThickness="0.3">
+
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="15" Direction="-90"
+                              RenderingBias="Quality" ShadowDepth="2"/>
+        </Border.Effect>
+
+        <Grid HorizontalAlignment="Stretch" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="23*"></RowDefinition>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="点击或按ESC键获取当前坐标"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Width="165"/>
+
+            <Label x:Name="xLbl" Content="X: 0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Grid.Row="1" Margin="40,2,0,2" Grid.RowSpan="2"/>
+
+            <Label x:Name="yLbl" Content="Y: 0"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Grid.Row="1" Margin="0,2,40,2" Grid.RowSpan="2"/>
+        </Grid>
+
+    </Border>
+</Window>
