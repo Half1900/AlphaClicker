@@ -366,6 +366,7 @@ namespace AlphaClicker
         private void getCoordsBtn_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+            coordsCBtn.IsChecked = true;
             GetCursorPos win = new GetCursorPos();
             win.Owner = this;
             win.Show();
