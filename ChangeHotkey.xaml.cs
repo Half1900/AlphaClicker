@@ -70,7 +70,7 @@ namespace AlphaClicker
         private void hotkeyWindow_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             // Not good way of doing it, but it works.
-            if (keyBox.Text == "请按键")
+            if (keyBox.Text == "请输入快捷键")
             {
                 keyBox.Clear();
             }
@@ -132,7 +132,7 @@ namespace AlphaClicker
             okBtn.IsEnabled = false;
             hasSpecKey = false;
             startBtn.IsEnabled = false;
-            keyBox.Text = "请按键";
+            keyBox.Text = "请输入快捷键";
         }
 
         private void okBtn_Click(object sender, RoutedEventArgs e)
